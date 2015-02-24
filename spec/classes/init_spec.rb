@@ -90,7 +90,7 @@ describe 'git', :type => :class do
     end
     describe "with no parameters" do
       it { should contain_class('git::params') }
-      it { should contain_package('git').with(
+      it { should contain_package('git-core').with(
         'ensure'  => 'installed',
         'name'    => 'git-core'
       ) }
@@ -137,7 +137,11 @@ describe 'git', :type => :class do
       it { should contain_class('git::params') }
       it { should contain_package('git').with(
         'ensure' => 'installed',
-        'name'   => ['git', 'git-core']
+        'name'   => 'git'
+      ) }
+      it { should contain_package('git-core').with(
+        'ensure' => 'installed',
+        'name'   => 'git-core'
       ) }
     end
   end

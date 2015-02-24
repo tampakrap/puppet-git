@@ -50,19 +50,16 @@ class git(
     }
   }
 
-  package{'git':
+  package{ $package:
     ensure => $ensure,
-    name   => $package,
   }
 
-  package{'git-svn':
+  package{ $git::params::svn_package:
     ensure => $ensure_svn,
-    name   => $git::params::svn_package,
   }
 
-  package{'git-gui':
+  package{ $git::params::gui_package:
     ensure => $ensure_gui,
-    name   => $git::params::gui_package,
   }
 
   # Need to consider if this should happen or not.
